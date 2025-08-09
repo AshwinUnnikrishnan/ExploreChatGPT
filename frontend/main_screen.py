@@ -89,7 +89,7 @@ def files_upload_row():
             )
 
     with get_res_col:
-        st.button("Generate Resilience Assessment", key=widget_key.GET_ANSWER_WIDGET, on_click=lambda : generate_resilience_helper())
+        st.button("Generate Resilience Assessment Summary", key=widget_key.GET_ANSWER_WIDGET, on_click=lambda : generate_resilience_helper())
 
 
 
