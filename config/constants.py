@@ -9,7 +9,6 @@ WELCOME_MESSAGE = f"Thank you for choosing {NAME} for your Resilience Assessment
 
 PROMPT_TEMPLATE_PATH = "config/prompt.txt"
 
-OPEN_AI_API_KEY = "asd"
 
 
 file_types_allowed_list = ['pdf', 'docx', 'txt', 'csv', 'json']

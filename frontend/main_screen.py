@@ -1,9 +1,10 @@
 import streamlit as st
 from config import widget_key
 from config import constants
-from backend.utils import generate_response
+from backend.utils import generate_response, generate_response_with_files
 
 def generate_resilience_helper():
+    openAI_client = st.session_state[widget_key.OPEN_AI_CLIENT_OBJ]
     tier_level = st.session_state[widget_key.TIER_LEVEL_DROPDOWN_WIDGET]
     file_inputs = {
         "Architecture & HLD": st.session_state.get(widget_key.ARCH_HLD_FILE_SELECTOR_WIDGET, []),
@@ -14,7 +15,7 @@ def generate_resilience_helper():
         "Backup/Restore Reports": st.session_state.get(widget_key.BACKUP_SETTINGS_REPORTS_FILE_SELECTOR_WIDGET, []),
         "Prior Patterns/Standards": st.session_state.get(widget_key.PRIOR_PATTERN_STANDARDS_FILE_SELECTOR_WIDGET, []),
     }
-    st.session_state[widget_key.RESPONSE_DATA] = generate_response(tier_level=tier_level, files_dict=file_inputs)
+    st.session_state[widget_key.RESPONSE_DATA] = generate_response(openAI_client=openAI_client, tier_level=tier_level, files_dict=file_inputs)
     
 
 
