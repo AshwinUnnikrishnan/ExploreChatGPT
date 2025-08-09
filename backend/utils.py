@@ -71,14 +71,18 @@ def generate_response_with_files(openAI_client, tier_level, files_dict):
 
 def generate_response(openAI_client, tier_level, files_dict):
 
+
+    system_instruction_template = load_system_settings_template()
+    system_instruction = system_instruction_template.format(TierLevel=tier_level)
     print("Uploading the files to OpenAII")
     file_id_dict = upload_files_temp_file(openAI_client, files_dict)
     print("Making the contents list")
     contents_list = create_contents_list(file_id_dict=file_id_dict)
     
     response_v = openAI_client.responses.create(
-    model="gpt-4",  # or "gpt-3.5-turbo"
-    instructions="You have to honestly go through and mention what is present.",
+    model="gpt-4o-mini",  # or "gpt-3.5-turbo"
+    tools=[{"type": "web_search_preview"}],
+    instructions=system_instruction + "\nIdentify the respective files automatically.",
     input=[
         {
             "role": "user",

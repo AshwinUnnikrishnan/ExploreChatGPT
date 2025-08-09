@@ -63,5 +63,4 @@ def create_contents_list(file_id_dict):
             content_list.append({"type":"input_file", "file_id":file_id})
 
     
-    content_list.append({"type": "input_text", "text": "Summarize like pokemon anime"})
     return content_list
