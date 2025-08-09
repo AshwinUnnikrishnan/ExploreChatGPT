@@ -1,1 +1,5 @@
-TITLE = "Thank you for choosing Bastion Trust for your Resilience Assessment."
+NAME = "ABC XYZ"
+
+TITLE = f"{NAME} Resilience Assessment"
+
+WELCOME_MESSAGE = f"Thank you for choosing {NAME} for your Resilience Assessment"
