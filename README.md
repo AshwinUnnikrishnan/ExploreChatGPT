@@ -1,1 +1,1 @@
-# ExploreChatGPT
+# Explore OpenAI APIs
